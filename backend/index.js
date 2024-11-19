@@ -18,8 +18,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-const buildpath = path.join(__dirname,"../frontend/dist")
-app.use(express.static(buildpath))
+// const buildpath = path.join(__dirname,"../frontend/dist")
+// app.use(express.static(buildpath))
 app.use(
   cors({
     origin: "*",
@@ -29,7 +29,7 @@ app.use(
 
 // MongoDB Connection
 mongoose
-  .connect("mongodb+srv://amanupadhyay33822:GNoxUJgH1HnuyGu2@cluster0.cqvv9t1.mongodb.net/Mudda")
+  .connect(process.env.MONGO_URL)
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('MongoDB connection error:', err));
 

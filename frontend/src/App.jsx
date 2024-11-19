@@ -86,7 +86,7 @@ const App = () => {
         </div>
       )}
 
-      <h2>Video Upload</h2>
+      <h2>Video Uploader</h2>
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleFileUpload} className="upload-button">
         Upload

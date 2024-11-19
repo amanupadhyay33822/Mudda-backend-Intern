@@ -31,7 +31,7 @@ const App = () => {
     setUploadStatus('Uploading...');
 
     try {
-      const response = await axios.post('http://localhost:5000/upload', formData, {
+      const response = await axios.post('https://mudda-backend-intern-production.up.railway.app/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

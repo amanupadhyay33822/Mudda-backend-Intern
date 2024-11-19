@@ -7,6 +7,7 @@ const fs = require('fs');
 const AWS = require('aws-sdk');
 const cors = require("cors");
 const dotenv = require('dotenv');
+
 const Video = require("./models/video");  // Ensure this model is created as per the schema below
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 const ffmpeg = require('fluent-ffmpeg');
@@ -17,6 +18,8 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+const buildpath = path.join(__dirname,"../frontend/dist")
+app.use(express.static(buildpath))
 app.use(
   cors({
     origin: "*",
@@ -26,7 +29,7 @@ app.use(
 
 // MongoDB Connection
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect("mongodb+srv://amanupadhyay33822:GNoxUJgH1HnuyGu2@cluster0.cqvv9t1.mongodb.net/Mudda")
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('MongoDB connection error:', err));
 
